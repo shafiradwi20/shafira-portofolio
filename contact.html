@@ -1,6 +1,7 @@
 <!-- Subscribe Tamzidan Madiyin di YouTube -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +52,8 @@
             text-shadow: 0 0 10px rgb(58, 211, 3);
         }
 
-        .hamburg, .cancel {
+        .hamburg,
+        .cancel {
             cursor: pointer;
             position: absolute;
             right: 15px;
@@ -224,10 +226,10 @@
             pointer-events: none;
         }
 
-        .form-group input:focus ~ label,
-        .form-group input:valid ~ label,
-        .form-group textarea:focus ~ label,
-        .form-group textarea:valid ~ label {
+        .form-group input:focus~label,
+        .form-group input:valid~label,
+        .form-group textarea:focus~label,
+        .form-group textarea:valid~label {
             top: -0.5rem;
             left: 0.8rem;
             font-size: 0.8rem;
@@ -284,7 +286,7 @@
                 height: auto;
                 min-height: 100vh;
             }
-            
+
             .contact-container {
                 height: auto;
                 min-height: 90vh;
@@ -303,7 +305,8 @@
                 display: none;
             }
 
-            .hamburg, .cancel {
+            .hamburg,
+            .cancel {
                 display: block;
             }
 
@@ -344,6 +347,7 @@
     </style>
     <title>Contact - Portfolio Website</title>
 </head>
+
 <body>
     <nav>
         <div class="nav-container">
@@ -351,11 +355,16 @@
                 Tamzidan <span>Mahdiyin</span>
             </div>
             <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skill.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="service.html">Service</a></div>
-                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
+                        href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
+                        href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
+                        href="skill.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
+                        href="service.html">Service</a></div>
+                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
+                        href="contact.html">Contact</a></div>
             </div>
         </div>
         <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
@@ -378,7 +387,7 @@
                     <h1>Get in Touch</h1>
                     <p>Feel free to reach out to me for any questions or opportunities.</p>
                 </div>
-                
+
                 <div class="contact-details">
                     <div class="contact-item" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
                         <div class="contact-icon">
@@ -389,7 +398,7 @@
                             <p>+62 234 5678 9003</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -399,7 +408,7 @@
                             <p>contact@tamzidan.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">
                         <div class="contact-icon">
                             <i class="fas fa-location-dot"></i>
@@ -420,27 +429,27 @@
             </div>
 
             <div class="contact-form" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">
-                <form>
+                <form action="https://formspree.io/f/mwppavbk" method="POST">
                     <div class="form-group">
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                         <label for="name">Your Name</label>
                     </div>
-                    
+
                     <div class="form-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                         <label for="email">Your Email</label>
                     </div>
-                    
+
                     <div class="form-group">
-                        <input type="text" id="subject" required>
+                        <input type="text" id="subject" name="subject" required>
                         <label for="subject">Subject</label>
                     </div>
-                    
+
                     <div class="form-group">
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                         <label for="message">Your Message</label>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
@@ -449,9 +458,10 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({offset:0,});
+        AOS.init({ offset: 0, });
     </script>
-        <script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
 <!-- Subscrbe YouTube Tamzidan Mahdiyin  -->
