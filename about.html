@@ -1,5 +1,3 @@
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Link ke Font Awesome untuk ikon -->
+    <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Link ke library animasi AOS -->
+    <!-- Link to AOS animation library -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- CSS internal untuk styling halaman -->
+    <!-- Internal CSS for page styling -->
     <style>
-        /* 
-          Import Google Font Poppins
-          Font weight yang diimport: 100, 200, 300, 400, 500, 600 
-        */
+        /* Import Poppins font from Google Fonts */
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
-        /* Reset CSS dan pengaturan default */
+        /* CSS Reset and default settings */
         * {
             padding: 0;
             margin: 0;
@@ -29,333 +24,514 @@
             box-sizing: border-box;
         }
 
-        /* 
-          Styling untuk body
-          - Menggunakan background image
-          - Cover seluruh viewport
-          - Mencegah horizontal scroll
-        */
+        /* Body styling with background image */
         body {
             width: 100%;
             min-height: 100vh;
-            background-image: url("./img/background.jpg");
+            background-color: #f5e8f0; /* Pastel purple-pink background */
+            background-image: url("../img/background.jpg");
             background-size: cover;
+            background-attachment: fixed;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* 
-          Navbar styling
-          - Fixed height 10vh
-          - Posisi relative untuk positioning yang tepat
-          - z-index tinggi agar selalu di atas konten lain
-        */
+        /* Navbar styling */
         nav {
             width: 100%;
             height: 10vh;
-            position: sticky;
-            position: relative;
-            /* Ubah dari sticky ke relative */
+            position: fixed;
+            top: 0;
+            left: 0;
             z-index: 1000;
-            /* Tambahkan z-index tinggi untuk nav */
+            box-shadow: 0 2px 15px rgba(99, 87, 113, 0.3);
         }
 
-        /* Container untuk konten navbar */
+        /* Container for navbar content */
         .nav-container {
             width: 100%;
             height: 100%;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 5%;
+            background-color: rgba(99, 87, 113, 0.95); /* Muted purple navbar */
+            backdrop-filter: blur(8px);
         }
 
-        /* 
-          Logo styling
-          - Warna putih dengan ukuran 2rem
-          - Text shadow untuk efek glow pada span 
-        */
+        /* Logo styling */
         .logo {
             color: white;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
         .logo span {
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            color: #e2b0d5; /* Soft pink */
+            text-shadow: 0 0 10px rgba(226, 176, 213, 0.5);
+            transition: all 0.3s ease;
         }
 
-        /* 
-          Hamburger dan Cancel button styling
-          - Hanya muncul di mobile view
-          - Posisi absolute di kanan atas
-        */
+        /* Hamburger and cancel button styling */
         .hamburg,
         .cancel {
             cursor: pointer;
             position: absolute;
-            right: 15px;
-            top: 10px;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             color: white;
             display: none;
-            font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+            font-size: 2rem;
+            transition: all 0.3s ease;
         }
 
-        /* 
-          Navigation links container
-          - Flex layout untuk alignment horizontal
-        */
+        /* Navigation links container */
         .nav-container .links {
             display: flex;
         }
 
-        /* 
-          Individual navigation links
-          - Spacing dan styling untuk tiap link
-          - Hover effect dengan border bottom
-        */
+        /* Individual navigation links */
         .nav-container .links a {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: white;
             margin: 0 20px;
+            padding: 8px 0;
             text-decoration: none;
-            font-weight: 550;
-            transition: 0.3s linear;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-container .links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e2b0d5; /* Soft pink */
+            transition: width 0.3s ease;
+        }
+
+        .nav-container .links a:hover::after {
+            width: 100%;
         }
 
         .nav-container .links a:hover {
-            color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            color: #e2b0d5; /* Soft pink */
         }
 
-        /* Styling untuk link aktif */
         .nav-container .links .active {
-            color: rgb(58, 211, 3);
-            border-bottom: 2px solid rgb(58, 211, 3);
+            color: #e2b0d5; /* Soft pink */
+            font-weight: 600;
         }
 
-        /* 
-          Dropdown menu untuk mobile view
-          - Fixed positioning dengan transform untuk animasi
-          - Backdrop filter untuk efek blur
-        */
+        .nav-container .links .active::after {
+            width: 100%;
+        }
+
+        /* Dropdown menu for mobile view */
         .dropdown {
-            z-index: 1000;
+            z-index: 999;
             position: fixed;
-            top: 0;
+            top: 10vh;
             left: 0;
             right: 0;
-            transform: translateY(-500px);
+            transform: translateY(-200%);
             width: 100%;
             height: auto;
-            backdrop-filter: blur(4px) brightness(40%);
-            box-shadow: 0 0 20px black;
-            transition: 0.2s linear;
+            backdrop-filter: blur(10px);
+            background-color: rgba(99, 87, 113, 0.95); /* Muted purple */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .dropdown.active {
+            transform: translateY(0);
         }
 
         .dropdown .links a {
             display: flex;
             color: white;
             text-decoration: none;
-            padding: 15px 0;
-            justify-content: center;
-            align-items: center;
-            transition: 0.2s linear;
+            padding: 15px 5%;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .dropdown .links a:hover {
-            background-color: rgb(58, 211, 3);
+            background-color: #c08eb7; /* Medium pink */
+            padding-left: 7%;
         }
 
-        /* About Section Styles */
+        /* About page specific styles */
         .about-container {
             width: 100%;
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 12vh 2rem 2rem; /* Adjusted for fixed navbar */
             position: relative;
             z-index: 1;
         }
 
         .about-content {
-            width: 80%;
+            width: 85%;
             max-width: 1200px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(99, 87, 113, 0.8); /* Semi-transparent muted purple */
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
             color: white;
-            /* box-shadow: 0 0 30px rgba(58, 211, 3, 0.3); */
+            box-shadow: 0 10px 30px rgba(99, 87, 113, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .about-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 87, 113, 0.4);
         }
 
         .about-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
         }
 
         .about-header h1 {
             font-size: 2.5rem;
-            color: rgb(58, 211, 3);
-            text-shadow: 0 0 10px rgb(58, 211, 3);
+            color: white;
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-header h1::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: #e2b0d5; /* Soft pink */
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .about-header h1 span {
+            color: #e2b0d5; /* Soft pink */
+            text-shadow: 0 0 10px rgba(226, 176, 213, 0.8);
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .about-image {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 20px;
+            border-radius: 60% 40% 50% 50% / 50% 45% 55% 50%;
             overflow: hidden;
-            box-shadow: 0 0 20px rgb(58, 211, 3);
+            box-shadow: 0 10px 30px rgba(226, 176, 213, 0.6);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 40%, rgba(226, 176, 213, 0.3));
+            z-index: 1;
         }
 
         .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover {
+            border-radius: 45% 55% 55% 45% / 50% 50% 50% 50%;
+            box-shadow: 0 15px 40px rgba(226, 176, 213, 0.8);
+            transform: scale(1.02);
         }
 
         .about-text h2 {
-            color: rgb(58, 211, 3);
-            margin-bottom: 1rem;
+            color: #e2b0d5; /* Soft pink */
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: #e2b0d5; /* Soft pink */
         }
 
         .about-text p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            opacity: 0.9;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .stat-item {
-            background: rgba(58, 211, 3, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
+            background: rgba(226, 176, 213, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
             text-align: center;
-            border: 1px solid rgb(58, 211, 3);
+            border: 1px solid rgba(226, 176, 213, 0.3);
             cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(226, 176, 213, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: all 0.6s ease;
+        }
+
+        .stat-item:hover::before {
+            transform: translateX(100%);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(226, 176, 213, 0.3);
+            border-color: rgba(226, 176, 213, 0.6);
         }
 
         .stat-item h3 {
-            color: rgb(58, 211, 3);
-            font-size: 1.5rem;
+            color: #e2b0d5; /* Soft pink */
+            font-size: 2rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
+        .stat-item p {
+            color: white;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+
+        /* Content grid for projects, experience, etc. */
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 2rem 0;
+            padding: 1rem 0;
         }
 
         .content-card {
-            background: rgba(58, 211, 3, 0.1);
+            background: rgba(99, 87, 113, 0.7);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            height: 100%;
+            border: 1px solid rgba(226, 176, 213, 0.2);
         }
 
         .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(58, 211, 3, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(226, 176, 213, 0.3);
+            border-color: rgba(226, 176, 213, 0.4);
         }
 
         .card-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(99, 87, 113, 0.8), transparent);
         }
 
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .content-card:hover .card-image img {
+            transform: scale(1.1);
         }
 
         .card-info {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
 
         .card-info h3 {
-            color: rgb(58, 211, 3);
+            color: #e2b0d5; /* Soft pink */
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .card-info h4 {
+            color: white;
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         .card-info p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .card-info .period {
+            color: #e2b0d5; /* Soft pink */
             font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
             margin-bottom: 1rem;
         }
 
         .card-info .technologies {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
         }
 
         .technology-tag {
-            background: rgba(58, 211, 3, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: rgb(58, 211, 3);
-        }
-
-        .back-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: rgb(58, 211, 3);
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 2rem;
+            background: rgba(226, 176, 213, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #e2b0d5; /* Soft pink */
             transition: all 0.3s ease;
         }
 
-        .back-button:hover {
-            background: rgb(45, 165, 2);
+        .technology-tag:hover {
+            background: rgba(226, 176, 213, 0.3);
             transform: translateY(-2px);
         }
 
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #c08eb7; /* Medium pink */
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(192, 142, 183, 0.3);
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background: #e2b0d5; /* Soft pink */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(226, 176, 213, 0.4);
+        }
+
         .award-icon {
-            font-size: 2rem;
-            color: rgb(58, 211, 3);
+            font-size: 2.5rem;
+            color: #e2b0d5; /* Soft pink */
             margin-bottom: 1rem;
+            opacity: 0.9;
+            text-align: center;
         }
 
         .client-testimonial {
             font-style: italic;
             margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(58, 211, 3, 0.05);
+            padding: 1.2rem;
+            background: rgba(226, 176, 213, 0.1);
             border-radius: 10px;
+            border-left: 3px solid #e2b0d5; /* Soft pink */
+            position: relative;
         }
 
+        .client-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 2rem;
+            color: #e2b0d5; /* Soft pink */
+            opacity: 0.3;
+        }
 
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .about-grid {
+                gap: 2rem;
+            }
+            
+            .about-content {
+                width: 90%;
+                padding: 2.5rem;
+            }
+            
+            .stats {
+                gap: 1rem;
+            }
+        }
 
         @media (max-width: 884px) {
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            nav .logo {
+            .about-image {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .logo {
                 position: absolute;
-                top: 16px;
-                left: 15px;
+                top: 50%;
+                left: 5%;
+                transform: translateY(-50%);
                 font-size: 1.5rem;
             }
 
@@ -367,65 +543,71 @@
             .cancel {
                 display: block;
             }
+            
+            .about-content {
+                padding: 2rem;
+            }
+            
+            .about-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stats {
+                margin-top: 2rem;
+            }
         }
 
-        @media (max-width: 440px) {
+        @media (max-width: 576px) {
             .about-container {
-                padding: 1rem;
+                padding: 12vh 1rem 1rem;
             }
 
             .about-content {
                 width: 95%;
-                /* Memperbesar width untuk layar kecil */
                 padding: 1.5rem;
             }
 
             .about-header h1 {
                 font-size: 1.8rem;
-                /* Mengurangi ukuran judul */
             }
 
             .about-text h2 {
-                font-size: 1.4rem;
-                /* Mengurangi ukuran sub-judul */
+                font-size: 1.5rem;
             }
 
             .about-text p {
-                font-size: 0.9rem;
-                /* Mengurangi ukuran teks */
-                line-height: 1.4;
+                font-size: 0.95rem;
+                line-height: 1.6;
             }
 
             .about-image {
-                width: 100%;
+                max-width: 250px;
                 max-height: 250px;
-                /* Membatasi tinggi gambar */
             }
 
             .stats {
                 grid-template-columns: repeat(2, 1fr);
-                /* Tetap 2 kolom tapi lebih kecil */
                 gap: 0.8rem;
             }
 
             .stat-item {
-                padding: 0.8rem;
+                padding: 1rem;
             }
 
             .stat-item h3 {
-                font-size: 1.2rem;
-                /* Mengurangi ukuran angka statistik */
+                font-size: 1.5rem;
             }
 
             .stat-item p {
-                font-size: 0.8rem;
-                /* Mengurangi ukuran teks statistik */
+                font-size: 0.85rem;
             }
-
-            /* Menyesuaikan padding untuk link statistik */
-            .stat-item a {
-                padding: 0.5rem;
-                display: block;
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-info {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -434,11 +616,11 @@
 
 <body>
 
-    <!-- Navigasi -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Tamzidan <span>Mahdiyin</span>
+                Shafira <span>Dwi Nur'Izzati</span>
             </div>
             <div class="links">
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
@@ -466,322 +648,457 @@
         </div>
     </nav>
 
-    <!-- Konten utama halaman About -->
+    <!-- Main content of the About page -->
     <div class="about-container">
         <div class="about-content" id="aboutContent">
-            <!-- Bagian header -->
+            <!-- Header section -->
             <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                <h1>About Me</h1>
+                <h1>About <span>Me</span></h1>
             </div>
 
-            <!-- Grid untuk gambar dan teks deskripsi -->
+            <!-- Grid for image and description text -->
             <div class="about-grid">
                 <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
-                    <img src="img/zoro.jpg" alt="About Image">
+                    <img src="img/shafira.PNG" alt="About Image">
                 </div>
                 <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
                     <h2>Who Am I?</h2>
-                    <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
-                        innovative digital solutions. With expertise in web development, UI/UX design, and content
-                        creation, I bring ideas to life through code and creativity.</p>
-                    <p>My journey in technology began with a simple curiosity and has evolved into a professional
-                        pursuit of excellence in digital craftsmanship.</p>
+                    <p>I am a fifth semester student at Stmik Tegal, majoring in Information Systems. Throughout my studies, I have gained strong foundational knowledge in system analysis, database management, and web development.</p>
+                    <p>Although I have not participated in student organizations or internships, I have been focusing on building my skills through coursework and personal projects, particularly in software development, data analysis, and information system design.</p>
+                    <p>I am eager to further enhance my knowledge and apply my technical skills in real-world projects.</p>
 
                     <div class="stats">
                         <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200"
                             onclick="showProjects()">
-                            <h3>50+</h3>
+                            <h3>5+</h3>
                             <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400"
-                            onclick="showExperience()">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600"
-                            onclick="showClients()">
-                            <h3>20+</h3>
-                            <p>Happy Clients</p>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800"
-                            onclick="showAwards()">
-                            <h3>15+</h3>
-                            <p>Awards Won</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Link ke library animasi AOS -->
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- AOS Animation library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-        <!-- JavaScript untuk interaksi dan animasi halaman -->
-        <script>
+    <!-- JavaScript for page interactions and animations -->
+    <script>
+        // Initialize AOS library
+        AOS.init({ offset: 0 });
 
-            // Inisialisasi library AOS
-            AOS.init({ offset: 0 });
+        // Function to show hamburger menu
+        function hamburg() {
+            const navbar = document.querySelector(".dropdown");
+            navbar.style.transform = "translateY(0px)";
+        }
 
-            // Fungsi untuk menampilkan menu hamburger
-            function hamburg() {
-                const navbar = document.querySelector(".dropdown")
-                navbar.style.transform = "translateY(0px)"
-            }
+        // Function to hide hamburger menu
+        function cancel() {
+            const navbar = document.querySelector(".dropdown");
+            navbar.style.transform = "translateY(-200%)";
+        }
 
-            // Fungsi untuk menyembunyikan menu hamburger
-            function cancel() {
-                const navbar = document.querySelector(".dropdown")
-                navbar.style.transform = "translateY(-500px)"
-            }
+        // Function to show Projects list
+        function showProjects() {
+            const aboutContent = document.getElementById('aboutContent');
+            aboutContent.innerHTML = `
+            <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>My <span>Projects</span></h1>
+            </div>
+            <div class="content-grid">
+                ${generateProjectCards()}
+            </div>
+        `;
+            AOS.refresh();
+        }
 
-            // Fungsi untuk menampilkan daftar Project
-            function showProjects() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>My Projects</h1>
+        // Helper function to generate project cards
+        function generateProjectCards() {
+            const projects = [
+                {
+                    title: "Personal Portfolio",
+                    image: "img/project1.png",
+                    description: "A responsive portfolio website with modern animations and clean design",
+                    technologies: ["HTML5", "CSS3", "JavaScript"]
+                },
+                {
+                    title: "Student Management System",
+                    image: "img/project2.png",
+                    description: "Database-driven application for managing School Origin Data",
+                    technologies: ["PHP", "MySQL", "HTML"]
+                },
+                {
+                    title: "Disdukcapil Dashboard",
+                    image: "img/project3.png",
+                    description: "A dashboard system for visualizing citizen data, built with Laravel and API integration",
+                    technologies: ["Laravel", "RESTful API", "Bootstrap"]
+                }
+                // Add more projects as needed
+            ];
+
+            return projects.map(project => `
+            <div class="content-card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="${project.image}" alt="${project.title}">
                 </div>
-                <div class="content-grid">
-                    ${generateProjectCards()}
+                <div class="card-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="technologies">
+                        ${project.technologies.map(tech => `
+                            <span class="technology-tag">${tech}</span>
+                        `).join('')}
+                    </div>
                 </div>
+            </div>
+        `).join('');
+        }
+</script>
+
+<!-- Add the missing footer section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                Shafira <span>Dwi Nur'Izzati</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skill.html">Skills</a>
+                <a href="service.html">Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/shafira-dwi-709925329/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/shafiradwi20" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/share/15mmcZ7fgq/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/shafiraadni" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Shafira Dwi Nur'Izzati. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Add footer styles -->
+<style>
+    /* Footer styles */
+    footer {
+        background-color: rgba(99, 87, 113, 0.95);
+        backdrop-filter: blur(8px);
+        padding: 3rem 0 2rem;
+        margin-top: 2rem;
+    }
+
+    .footer-container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+        color: white;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .footer-logo span {
+        color: #e2b0d5;
+        text-shadow: 0 0 10px rgba(226, 176, 213, 0.5);
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .footer-links a:hover {
+        color: #e2b0d5;
+    }
+
+    .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-social a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(226, 176, 213, 0.2);
+        color: white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+        background-color: #e2b0d5;
+        transform: translateY(-5px);
+    }
+
+    .footer-social i {
+        font-size: 1.2rem;
+    }
+
+    .footer-copyright {
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+</style>
+
+<!-- Enhancements for the existing content -->
+<script>
+    // Add education section function
+    function showEducation() {
+        const aboutContent = document.getElementById('aboutContent');
+        aboutContent.innerHTML = `
+            <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>My <span>Education</span></h1>
+            </div>
+            <div class="content-grid">
+                ${generateEducationCards()}
+            </div>
+        `;
+        AOS.refresh();
+    }
+
+    // Helper function to generate education cards
+    function generateEducationCards() {
+        const education = [
+            {
+                school: "STMIK YMI Tegal",
+                degree: "Bachelor of Information Systems",
+                period: "2022 - 2026",
+                description: "Currently pursuing degree with focus on database management, system analysis and design, and web development."
+            },
+            {
+                school: "SMA Negeri 1 Kramat",
+                degree: "High School",
+                period: "2019 - 2022",
+                description: "Graduated with honors, specialized in Mathematics and Natural Sciences."
+            }
+        ];
+
+        return education.map(edu => `
+            <div class="content-card" data-aos="fade-up">
+                <div class="card-info">
+                    <h3>${edu.school}</h3>
+                    <h4>${edu.degree}</h4>
+                    <p class="period">${edu.period}</p>
+                    <p>${edu.description}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Enhance initial content with an education button
+    window.onload = function() {
+        // Add education button to stats
+        const statsContainer = document.querySelector('.stats');
+        if (statsContainer) {
+            const educationBtn = document.createElement('div');
+            educationBtn.className = 'stat-item';
+            educationBtn.setAttribute('data-aos', 'zoom-in');
+            educationBtn.setAttribute('data-aos-duration', '1500');
+            educationBtn.setAttribute('data-aos-delay', '1000');
+            educationBtn.onclick = showEducation;
+            educationBtn.innerHTML = `
+                <h3><i class="fas fa-graduation-cap"></i></h3>
+                <p>Education</p>
             `;
-                AOS.refresh();
-            }
+            statsContainer.appendChild(educationBtn);
+            AOS.refresh();
+        }
+    };
 
-            // Fungsi untuk menampilkan daftar Experience
-            function showExperience() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>My Experience</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateExperienceCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
+    // Add hover effects to navbar links
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-container .links a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    });
+</script>
 
-            // Fungsi untuk menampilkan daftar Clients
-            function showClients() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>Client Success Stories</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateClientCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
+<!-- Add animation to page loading -->
+<style>
+    /* Page loading animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-            // Fungsi untuk menampilkan daftar Awards
-            function showAwards() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                    <i class="fas fa-arrow-left"></i> Back
-                </a>
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>Awards & Recognition</h1>
-                </div>
-                <div class="content-grid">
-                    ${generateAwardCards()}
-                </div>
-            `;
-                AOS.refresh();
-            }
+    .about-container {
+        animation: fadeIn 1s ease-out;
+    }
+    
+    /* Enhanced styling for content cards */
+    .content-card {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .content-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, #e2b0d5, #c08eb7);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.4s ease;
+    }
+    
+    .content-card:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    
+    /* Skills section preview in about page */
+    .skills-preview {
+        margin-top: 3rem;
+        text-align: center;
+    }
+    
+    .skills-preview h2 {
+        color: #e2b0d5;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .skills-preview h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #e2b0d5;
+    }
+    
+    .skills-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+    
+    .skill-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .skill-icon i {
+        font-size: 2.5rem;
+        color: #e2b0d5;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-icon span {
+        font-size: 0.9rem;
+        color: white;
+    }
+    
+    .skill-icon:hover {
+        transform: translateY(-8px);
+    }
+    
+    .view-more-btn {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.8rem 2rem;
+        background: #c08eb7;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(192, 142, 183, 0.3);
+    }
+    
+    .view-more-btn:hover {
+        background: #e2b0d5;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(226, 176, 213, 0.4);
+    }
+</style>
 
-            // Fungsi pembantu untuk menghasilkan kartu project
-            function generateProjectCards() {
-                const projects = [
-                    {
-                        title: "E-Commerce Platform",
-                        image: "img/zoro.jpg",
-                        description: "A full-stack e-commerce solution with payment integration",
-                        technologies: ["React", "Node.js", "MongoDB"]
-                    },
-                    {
-                        title: "Portfolio Website",
-                        image: "img/zoro.jpg",
-                        description: "Responsive portfolio website with modern animations",
-                        technologies: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Task Management App",
-                        image: "img/zoro.jpg",
-                        description: "Mobile-first task management application",
-                        technologies: ["Vue.js", "Firebase"]
-                    }
-                    // Add more projects as needed
-                ];
-
-                return projects.map(project => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-image">
-                        <img src="${project.image}" alt="${project.title}">
-                    </div>
-                    <div class="card-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="technologies">
-                            ${project.technologies.map(tech => `
-                                <span class="technology-tag">${tech}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu experience
-            function generateExperienceCards() {
-                const experiences = [
-                    {
-                        title: "Senior Web Developer",
-                        company: "Tech Solutions Inc.",
-                        period: "2021 - Present",
-                        description: "Leading frontend development team and implementing modern web solutions"
-                    },
-                    {
-                        title: "Frontend Developer",
-                        company: "Digital Agency",
-                        period: "2019 - 2021",
-                        description: "Developed responsive websites and web applications"
-                    }
-                    // Add more experiences as needed
-                ];
-
-                return experiences.map(exp => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-info">
-                        <h3>${exp.title}</h3>
-                        <h4>${exp.company}</h4>
-                        <p class="period">${exp.period}</p>
-                        <p>${exp.description}</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu client
-            function generateClientCards() {
-                const clients = [
-                    {
-                        name: "Ell Udin",
-                        company: "Innovation Corp",
-                        image: "img/zoro.jpg",
-                        testimonial: "Outstanding work on our company website redesign!"
-                    },
-                    {
-                        name: "Ell Ucup",
-                        company: "Tech Startup",
-                        image: "img/zoro.jpg",
-                        testimonial: "Delivered our app ahead of schedule with excellent quality"
-                    }
-                    // Add more clients as needed
-                ];
-
-                return clients.map(client => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-image">
-                        <img src="${client.image}" alt="${client.name}">
-                    </div>
-                    <div class="card-info">
-                        <h3>${client.name}</h3>
-                        <h4>${client.company}</h4>
-                        <p class="client-testimonial">"${client.testimonial}"</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi pembantu untuk menghasilkan kartu award
-            function generateAwardCards() {
-                const awards = [
-                    {
-                        title: "Best Web Design",
-                        organization: "Design Awards 2023",
-                        description: "Recognition for exceptional web design and user experience"
-                    },
-                    {
-                        title: "Innovation Award",
-                        organization: "Tech Summit 2022",
-                        description: "Awarded for innovative use of emerging technologies"
-                    }
-                    // Add more awards as needed
-                ];
-
-                return awards.map(award => `
-                <div class="content-card" data-aos="fade-up">
-                    <div class="card-info">
-                        <div class="award-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>${award.title}</h3>
-                        <h4>${award.organization}</h4>
-                        <p>${award.description}</p>
-                    </div>
-                </div>
-            `).join('');
-            }
-
-            // Fungsi untuk mengembalikan konten awal
-            function restoreInitialContent() {
-                const aboutContent = document.getElementById('aboutContent');
-                aboutContent.innerHTML = `
-                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                    <h1>About Me</h1>
-                </div>
-                <div class="about-grid">
-                    <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
-                        <img src="img/zoro.jpg" alt="About Image">
-                    </div>
-                    <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-                        <h2>Who Am I?</h2>
-                        <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
-                            innovative digital solutions. With expertise in web development, UI/UX design, and content
-                            creation, I bring ideas to life through code and creativity.</p>
-                        <p>My journey in technology began with a simple curiosity and has evolved into a professional
-                            pursuit of excellence in digital craftsmanship.</p>
-
-                        <div class="stats">
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200" onclick="showProjects()">
-                                <h3>50+</h3>
-                                <p>Projects Completed</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400" onclick="showExperience()">
-                                <h3>3+</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600" onclick="showClients()">
-                                <h3>20+</h3>
-                                <p>Happy Clients</p>
-                            </div>
-                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800" onclick="showAwards()">
-                                <h3>15+</h3>
-                                <p>Awards Won</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-                AOS.refresh();
-            }
-
-        </script>
-</body>
-
-</html>
-
-<!-- Subscribe Tamzidan Madiyin di YouTube -->
+<!-- Add Skills preview section to the about page -->
+<div class="skills-preview" data-aos="fade-up" data-aos-duration="1500">
+    <h2>My Skills</h2>
+    <div class="skills-icons">
+        <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+            <span>HTML5</span>
+        </div>
+        <div class="skill-icon">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS3</span>
+        </div>
+        <div class="skill-icon">
+            <i class="fab fa-js"></i>
+            <span>JavaScript</span>
+        </div>
+        <div class="skill-icon">
+            <i class="fab fa-php"></i>
+            <span>PHP</span>
+        </div>
+        <div class="skill-icon">
+            <i class="fas fa-database"></i>
+            <span>MySQL</span>
+        </div>
+    </div>
+    <a href="skill.html" class="view-more-btn">View All Skills</a>
+</div>
