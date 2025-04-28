@@ -65,6 +65,10 @@ nav {
   transition: all 0.3s ease;
 }
 
+.cancel {
+  display: none; /* Ensure cancel is hidden initially */
+}
+
 .nav-container .links {
   display: flex;
 }
@@ -104,7 +108,7 @@ nav {
   font-weight: 600;
 }
 
-.nav-container .links .active::after {
+.nav-container .links a.active::after {
   width: 100%;
 }
 
@@ -202,14 +206,10 @@ section {
   position: relative;
 }
 
-.typewriter span::after {
-  content: '';
-  position: absolute;
-  right: -5px;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background-color: #e2b0d5;
+.typewriter::after {
+  content: '|';
+  position: relative;
+  color: #e2b0d5;
   animation: blink 1s infinite;
 }
 
@@ -309,6 +309,37 @@ section {
   transform: scale(1.03);
 }
 
+.form-message {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border-left: 4px solid #4caf50;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.error-message {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  border-left: 4px solid #f44336;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.info-message {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+  border-left: 4px solid #2196f3;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .main-container {
@@ -334,8 +365,7 @@ section {
     display: none;
   }
 
-  .hamburg,
-  .cancel {
+  .hamburg {
     display: block;
   }
 
@@ -400,35 +430,4 @@ section {
     height: 2.5rem;
     font-size: 1.1rem;
   }
-}
-/* Tambahkan CSS ini ke file CSS Anda */
-.form-message {
-  margin-top: 20px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.success-message {
-  background-color: rgba(76, 175, 80, 0.1);
-  color: #4caf50;
-  border-left: 4px solid #4caf50;
-  padding: 10px 15px;
-  border-radius: 4px;
-}
-
-.error-message {
-  background-color: rgba(244, 67, 54, 0.1);
-  color: #f44336;
-  border-left: 4px solid #f44336;
-  padding: 10px 15px;
-  border-radius: 4px;
-}
-
-.info-message {
-  background-color: rgba(33, 150, 243, 0.1);
-  color: #2196f3;
-  border-left: 4px solid #2196f3;
-  padding: 10px 15px;
-  border-radius: 4px;
 }

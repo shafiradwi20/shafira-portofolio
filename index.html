@@ -28,34 +28,29 @@
 
             <!-- Navigation Links -->
             <div class="links">
-                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
-                        href="index.html">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
-                        href="about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
-                        href="skill.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
-                        href="service.html">Service</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
-                        href="contact.html">Contact</a></div>
+                <a href="index.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="about.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">About</a>
+                <a href="skill.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Skills</a>
+                <a href="service.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Service</a>
+                <a href="contact.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Contact</a>
             </div>
-        </div>
 
-        <!-- Hamburger Menu Icon for mobile view -->
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-
-        <!-- Dropdown Menu for Mobile -->
-        <div class="dropdown">
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="skill.html">Skills</a>
-                <a href="service.html">Service</a>
-                <a href="contact.html">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
+            <!-- Hamburger Menu Icon for mobile view -->
+            <i class="fa-solid fa-bars hamburg"></i>
+            <i class="fa-solid fa-xmark cancel"></i>
         </div>
     </nav>
+
+    <!-- Dropdown Menu for Mobile -->
+    <div class="dropdown">
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skill.html">Skills</a>
+            <a href="service.html">Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
     <!-- Main Content Section -->
     <section>
@@ -68,7 +63,7 @@
 
                 <!-- Typewriter Effect -->
                 <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900" class="typewriter">I'm a <span
-                        class="typewriter-text"></span><label for="">|</label></div>
+                        class="typewriter-text"></span></div>
 
                 <!-- Personal description paragraph -->
                 <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I am a fifth semester student at Stmik Tegal, majoring in Information Systems. Throughout my studies, I have gained strong foundational knowledge in system analysis, database management, and web development. Although I have not participated in student organizations or internships, I have been focusing on building my skills through coursework and personal projects, particularly in software development, data analysis, and information system design. I am eager to further enhance my knowledge and apply my technical skills in real-world projects.</p>
@@ -105,8 +100,70 @@
             // Replace with your actual CV file path
             window.location.href = "img/shafira_CV.pdf";
         }
+
+        // Typewriter effect
+        const typewriter = document.querySelector('.typewriter-text');
+        const words = ["Information Systems Major", "Web Developer", "UI/UX Designer"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeDelay = 100;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typeDelay = 50;
+            } else {
+                typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typeDelay = 100;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeDelay = 1000; // Wait before deleting
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeDelay = 500; // Wait before typing next word
+            }
+
+            setTimeout(type, typeDelay);
+        }
+
+        // Start the typewriter effect
+        setTimeout(type, 1000);
+
+        // Mobile navigation toggle
+        const hamburg = document.querySelector('.hamburg');
+        const cancel = document.querySelector('.cancel');
+        const dropdown = document.querySelector('.dropdown');
+
+        hamburg.addEventListener('click', function() {
+            dropdown.classList.add('active');
+            hamburg.style.display = 'none';
+            cancel.style.display = 'block';
+        });
+
+        cancel.addEventListener('click', function() {
+            dropdown.classList.remove('active');
+            hamburg.style.display = 'block';
+            cancel.style.display = 'none';
+        });
+
+        // Close the dropdown when a link is clicked
+        const dropdownLinks = document.querySelectorAll('.dropdown .links a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                dropdown.classList.remove('active');
+                hamburg.style.display = 'block';
+                cancel.style.display = 'none';
+            });
+        });
     </script>
-    <script src="./js/script.js"></script>
 </body>
 
 </html>
