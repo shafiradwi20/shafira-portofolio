@@ -2,46 +2,38 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome for social media icons and navigation -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- AOS (Animate On Scroll) library for scroll animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-    <!-- Custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- UBAH DI SINI: Title -->
     <title>Shafira Dwi Nur'Izzati - Portfolio</title>
 </head>
 
 <body>
-    <!-- Navigation Section -->
     <nav>
         <div class="nav-container">
-            <!-- Logo with animation -->
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                <!-- UBAH DI SINI: Nama (opsional, kalau mau disingkat juga boleh) -->
                 Shafira Dwi <span>Nur'Izzati</span>
             </div>
 
-            <!-- Navigation Links -->
             <div class="links">
-                <a href="index.html" class="active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="about.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">About</a>
-                <a href="skill.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Skills</a>
-                <a href="service.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Service</a>
-                <a href="contact.html" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Contact</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="skill.html">Skills</a>
+                <a href="service.html">Service</a>
+                <a href="contact.html">Contact</a>
             </div>
 
-            <!-- Hamburger Menu Icon for mobile view -->
             <i class="fa-solid fa-bars hamburg"></i>
             <i class="fa-solid fa-xmark cancel"></i>
         </div>
     </nav>
 
-    <!-- Dropdown Menu for Mobile -->
     <div class="dropdown">
         <div class="links">
             <a href="index.html">Home</a>
@@ -52,117 +44,95 @@
         </div>
     </div>
 
-    <!-- Main Content Section -->
     <section>
         <div class="main-container">
-            <!-- Content Container -->
             <div class="content">
-                <!-- Heading with animation -->
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Shafira</span>
+                <h1 data-aos="fade-left" data-aos-duration="1500">
+                    Hey I'm <span>Shafira</span>
                 </h1>
 
-                <!-- Typewriter Effect -->
-                <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900" class="typewriter">I'm a <span
-                        class="typewriter-text"></span></div>
-
-                <!-- Personal description paragraph -->
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I am a fifth semester student at Stmik Tegal, majoring in Information Systems. Throughout my studies, I have gained strong foundational knowledge in system analysis, database management, and web development. Although I have not participated in student organizations or internships, I have been focusing on building my skills through coursework and personal projects, particularly in software development, data analysis, and information system design. I am eager to further enhance my knowledge and apply my technical skills in real-world projects.</p>
-
-                <!-- Social Media Links -->
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/shafira-dwi-709925329/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/shafiradwi20" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.facebook.com/share/15mmcZ7fgq/?mibextid=wwXIfr" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://instagram.com/shafiraadni" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-instagram"></i></a>
+                <div data-aos="fade-right" data-aos-duration="1500" class="typewriter">
+                    I'm a <span class="typewriter-text"></span>
                 </div>
 
-                <!-- Download CV Button -->
-                <div class="btn" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
+                <!-- 🔴 UBAH DI SINI: DESKRIPSI UTAMA -->
+                <p data-aos="flip-down" data-aos-duration="1500">
+                    I am a seventh semester student at Universitas Harkat Negeri, majoring in Information Systems, Faculty of Science and Technology. 
+                    Throughout my academic journey, I have developed a strong understanding of system analysis, database management, and web-based application development. 
+                    I have been actively improving my skills through academic projects and independent learning, with a particular interest in web development, information system design, and UI/UX implementation. 
+                    I am motivated to continue learning and to apply my knowledge and technical skills in real-world projects and professional environments.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shafira-dwi-709925329/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/shafiradwi20" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/15mmcZ7fgq/?mibextid=wwXIfr" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/shafiraadni" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+
+                <div class="btn" data-aos="zoom-out" data-aos-duration="1500">
                     <button onclick="downloadCV()">Download CV</button>
                 </div>
             </div>
 
-            <!-- Profile Image Container -->
             <div class="image" data-aos="zoom-in" data-aos-duration="3000">
                 <img src="img/shafira.PNG" alt="Shafira Dwi Nur'Izzati">
             </div>
         </div>
     </section>
 
-    <!-- Script Imports -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Initialize AOS library
         AOS.init({ offset: 0 });
 
-        // Function to handle CV download
         function downloadCV() {
-            // Replace with your actual CV file path
             window.location.href = "img/shafira_CV.pdf";
         }
 
-        // Typewriter effect
+        // 🔴 UBAH DI SINI (opsional): kata-kata typewriter
+        const words = [
+            "Information Systems Student",
+            "Web Developer",
+            "UI/UX Enthusiast"
+        ];
+
         const typewriter = document.querySelector('.typewriter-text');
-        const words = ["Information Systems Major", "Web Developer", "UI/UX Designer"];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        let typeDelay = 100;
 
         function type() {
             const currentWord = words[wordIndex];
-            
+
             if (isDeleting) {
-                typewriter.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-                typeDelay = 50;
+                typewriter.textContent = currentWord.substring(0, charIndex--);
             } else {
-                typewriter.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-                typeDelay = 100;
+                typewriter.textContent = currentWord.substring(0, charIndex++);
             }
 
             if (!isDeleting && charIndex === currentWord.length) {
                 isDeleting = true;
-                typeDelay = 1000; // Wait before deleting
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeDelay = 500; // Wait before typing next word
+                setTimeout(type, 1000);
+                return;
             }
 
-            setTimeout(type, typeDelay);
+            if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            setTimeout(type, isDeleting ? 50 : 100);
         }
 
-        // Start the typewriter effect
         setTimeout(type, 1000);
-
-        // Mobile navigation toggle
-        const hamburg = document.querySelector('.hamburg');
-        const cancel = document.querySelector('.cancel');
-        const dropdown = document.querySelector('.dropdown');
-
-        hamburg.addEventListener('click', function() {
-            dropdown.classList.add('active');
-            hamburg.style.display = 'none';
-            cancel.style.display = 'block';
-        });
-
-        cancel.addEventListener('click', function() {
-            dropdown.classList.remove('active');
-            hamburg.style.display = 'block';
-            cancel.style.display = 'none';
-        });
-
-        // Close the dropdown when a link is clicked
-        const dropdownLinks = document.querySelectorAll('.dropdown .links a');
-        dropdownLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                dropdown.classList.remove('active');
-                hamburg.style.display = 'block';
-                cancel.style.display = 'none';
-            });
-        });
     </script>
 </body>
 
