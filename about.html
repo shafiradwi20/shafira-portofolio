@@ -623,15 +623,15 @@
                 Shafira <span>Dwi Nur'Izzati</span>
             </div>
             <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
                         href="index.html">Home</a></div>
-                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
+                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
                         href="about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                         href="skill.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
                         href="service.html">Service</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
                         href="contact.html">Contact</a></div>
             </div>
         </div>
@@ -656,43 +656,45 @@
                 <h1>About <span>Me</span></h1>
             </div>
 
-<!-- Grid for image and description text -->
-<div class="about-grid">
-    <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
-        <img src="img/shafira.PNG" alt="About Image">
-    </div>
+            <!-- Grid for image and description text -->
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="img/shafira.PNG" alt="About Image">
+                </div>
 
-    <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-        <h2>Who Am I?</h2>
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                    <h2>Who Am I?</h2>
 
-        <!-- ================= REVISI ABOUT ME (SEMESTER 7) ================= -->
-        <p>
-            I am a seventh semester student at Universitas Harkat Negeri, majoring in Information Systems, Faculty of Science and Technology. 
-            Throughout my academic journey, I have developed a strong interest and solid understanding in system analysis, database management, 
-            and web-based application development.
-        </p>
+                    <!-- ================= REVISI ABOUT ME (SEMESTER 7) ================= -->
+                    <p>
+                        I am a seventh semester student at Universitas Harkat Negeri, majoring in Information Systems, Faculty of Science and Technology. 
+                        Throughout my academic journey, I have developed a strong interest and solid understanding in system analysis, database management, 
+                        and web-based application development.
+                    </p>
 
-        <p>
-            In addition to my coursework, I actively enhance my skills through independent learning and hands-on projects, focusing on 
-            software development, information system design, and data management. I enjoy exploring new technologies and continuously 
-            improving my technical and problem-solving abilities.
-        </p>
+                    <p>
+                        In addition to my coursework, I actively enhance my skills through independent learning and hands-on projects, focusing on 
+                        software development, information system design, and data management. I enjoy exploring new technologies and continuously 
+                        improving my technical and problem-solving abilities.
+                    </p>
 
-        <p>
-            I am highly motivated to grow both academically and professionally, and I am eager to gain real-world experience where I can 
-            apply my knowledge, learn from practical challenges, and contribute meaningfully to projects in the field of information systems.
-        </p>
-        <!-- ================= END REVISI ================= -->
+                    <p>
+                        I am highly motivated to grow both academically and professionally, and I am eager to gain real-world experience where I can 
+                        apply my knowledge, learn from practical challenges, and contribute meaningfully to projects in the field of information systems.
+                    </p>
+                    <!-- ================= END REVISI ================= -->
 
-        <div class="stats">
-            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200"
-                onclick="showProjects()">
-                <h3>5+</h3>
-                <p>Projects Completed</p>
+                    <div class="stats">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200"
+                            onclick="showProjects()">
+                            <h3>5+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- AOS Animation library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -752,7 +754,6 @@
                     description: "A dashboard system for visualizing citizen data, built with Laravel and API integration",
                     technologies: ["Laravel", "RESTful API", "Bootstrap"]
                 }
-                // Add more projects as needed
             ];
 
             return projects.map(project => `
@@ -772,365 +773,409 @@
             </div>
         `).join('');
         }
-</script>
 
-<!-- Add the missing footer section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                Shafira <span>Dwi Nur'Izzati</span>
+        // Function to show Education list
+        function showEducation() {
+            const aboutContent = document.getElementById('aboutContent');
+            aboutContent.innerHTML = `
+                <a href="about.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My <span>Education</span></h1>
+                </div>
+                <div class="content-grid">
+                    ${generateEducationCards()}
+                </div>
+            `;
+            AOS.refresh();
+        }
+
+        // Helper function to generate education cards
+        function generateEducationCards() {
+            const education = [
+                {
+                    school: "SMA Negeri 1 Kramat",
+                    degree: "High School (Science Major)",
+                    period: "2019 - 2022",
+                    description: "Graduated with a strong foundation in Mathematics and Natural Sciences."
+                },
+                {
+                    school: "Universitas Harkat Negeri",
+                    degree: "Bachelor of Information Systems",
+                    period: "2022 - Present",
+                    description: "Seventh semester student majoring in Information Systems, Faculty of Science and Technology, with focus on system analysis, database management, and web-based application development."
+                }
+            ];
+
+            return education.map(edu => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${edu.school}</h3>
+                        <h4>${edu.degree}</h4>
+                        <p class="period">${edu.period}</p>
+                        <p>${edu.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to show Experience list
+        function showExperience() {
+            const aboutContent = document.getElementById('aboutContent');
+            aboutContent.innerHTML = `
+                <a href="about.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My <span>Experience</span></h1>
+                </div>
+                <div class="content-grid">
+                    ${generateExperienceCards()}
+                </div>
+            `;
+            AOS.refresh();
+        }
+
+        // Helper function to generate experience cards
+        function generateExperienceCards() {
+            const experiences = [
+                {
+                    company: "Civil Registry and Demography Agency (Disdukcapil)",
+                    position: "Web & Information System Development Intern",
+                    period: "2024",
+                    description: "Completed an internship at the Civil Registry and Demography Agency (Disdukcapil) of Tegal City, focusing on the development of a web-based backend system for population data management. Responsibilities included system analysis, database design and management, data entry, and supporting administrative workflows while maintaining data accuracy."
+                },
+                {
+                    company: "Dicoding",
+                    position: "Coding Camp Cohort Participant",
+                    period: "2024",
+                    description: "Selected as a cohort participant in Dicoding Coding Camp, completing structured learning paths and hands-on projects in web development and software engineering."
+                }
+            ];
+
+            return experiences.map(exp => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${exp.company}</h3>
+                        <h4>${exp.position}</h4>
+                        <p class="period">${exp.period}</p>
+                        <p>${exp.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Enhance initial content with education and experience buttons
+        window.onload = function() {
+            const statsContainer = document.querySelector('.stats');
+            if (statsContainer) {
+                // Add Education button
+                const educationBtn = document.createElement('div');
+                educationBtn.className = 'stat-item';
+                educationBtn.setAttribute('data-aos', 'zoom-in');
+                educationBtn.setAttribute('data-aos-duration', '1500');
+                educationBtn.setAttribute('data-aos-delay', '400');
+                educationBtn.onclick = showEducation;
+                educationBtn.innerHTML = `
+                    <h3><i class="fas fa-graduation-cap"></i></h3>
+                    <p>Education</p>
+                `;
+                statsContainer.appendChild(educationBtn);
+
+                // Add Experience button
+                const experienceBtn = document.createElement('div');
+                experienceBtn.className = 'stat-item';
+                experienceBtn.setAttribute('data-aos', 'zoom-in');
+                experienceBtn.setAttribute('data-aos-duration', '1500');
+                experienceBtn.setAttribute('data-aos-delay', '600');
+                experienceBtn.onclick = showExperience;
+                experienceBtn.innerHTML = `
+                    <h3><i class="fas fa-briefcase"></i></h3>
+                    <p>Experience</p>
+                `;
+                statsContainer.appendChild(experienceBtn);
+
+                AOS.refresh();
+            }
+        };
+
+        // Add hover effects to navbar links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-container .links a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+
+    <!-- Add the missing footer section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    Shafira <span>Dwi Nur'Izzati</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="skill.html">Skills</a>
+                    <a href="service.html">Service</a>
+                    <a href="contact.html">Contact</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="skill.html">Skills</a>
-                <a href="service.html">Service</a>
-                <a href="contact.html">Contact</a>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/shafira-dwi-709925329/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shafiradwi20" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/share/15mmcZ7fgq/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/shafiraadni" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Shafira Dwi Nur'Izzati. All rights reserved.</p>
             </div>
         </div>
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/in/shafira-dwi-709925329/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/shafiradwi20" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.facebook.com/share/15mmcZ7fgq/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/shafiraadni" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 Shafira Dwi Nur'Izzati. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- Add footer styles -->
-<style>
-    /* Footer styles */
-    footer {
-        background-color: rgba(99, 87, 113, 0.95);
-        backdrop-filter: blur(8px);
-        padding: 3rem 0 2rem;
-        margin-top: 2rem;
-    }
+    <!-- Add footer styles -->
+    <style>
+        /* Footer styles */
+        footer {
+            background-color: rgba(99, 87, 113, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 3rem 0 2rem;
+            margin-top: 2rem;
+        }
 
-    .footer-container {
-        width: 85%;
-        max-width: 1200px;
-        margin: 0 auto;
-        color: white;
-    }
+        .footer-container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+        }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-    }
-
-    .footer-logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .footer-logo span {
-        color: #e2b0d5;
-        text-shadow: 0 0 10px rgba(226, 176, 213, 0.5);
-    }
-
-    .footer-links {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    .footer-links a {
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 1rem;
-    }
-
-    .footer-links a:hover {
-        color: #e2b0d5;
-    }
-
-    .footer-social {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .footer-social a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        background-color: rgba(226, 176, 213, 0.2);
-        color: white;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-    }
-
-    .footer-social a:hover {
-        background-color: #e2b0d5;
-        transform: translateY(-5px);
-    }
-
-    .footer-social i {
-        font-size: 1.2rem;
-    }
-
-    .footer-copyright {
-        text-align: center;
-        font-size: 0.9rem;
-        opacity: 0.7;
-    }
-
-    @media (max-width: 768px) {
         .footer-content {
-            flex-direction: column;
-            gap: 1.5rem;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: #e2b0d5;
+            text-shadow: 0 0 10px rgba(226, 176, 213, 0.5);
         }
 
         .footer-links {
-            flex-wrap: wrap;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: #e2b0d5;
+        }
+
+        .footer-social {
+            display: flex;
             justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
-    }
-</style>
 
-<!-- Enhancements for the existing content -->
-<script>
-    // Add education section function
-    function showEducation() {
-        const aboutContent = document.getElementById('aboutContent');
-        aboutContent.innerHTML = `
-            <a href="about.html" class="back-button" onclick="restoreInitialContent()">
-                <i class="fas fa-arrow-left"></i> Back
-            </a>
-            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
-                <h1>My <span>Education</span></h1>
-            </div>
-            <div class="content-grid">
-                ${generateEducationCards()}
-            </div>
-        `;
-        AOS.refresh();
-    }
-
-    // Helper function to generate education cards
-function generateEducationCards() {
-    const education = [
-        // ================= EDUCATION =================
-        {
-            school: "SMA Negeri 1 Kramat",
-            degree: "High School (Science Major)",
-            period: "2019 - 2022",
-            description: "Graduated with a strong foundation in Mathematics and Natural Sciences."
-        },
-        {
-            school: "Universitas Harkat Negeri",
-            degree: "Bachelor of Information Systems",
-            period: "2022 - Present",
-            description: "Seventh semester student majoring in Information Systems, Faculty of Science and Technology, with focus on system analysis, database management, and web-based application development."
-        },
-
-        // ================= EXPERIENCE =================
-// ================= EXPERIENCE =================
-        {
-            school: "Internship Program",
-            degree: "Web & Information System Development",
-            period: "2024",
-            description: "Completed an internship at the Civil Registry and Demography Agency (Disdukcapil) of Tegal City, focusing on the development of a web-based backend system for population data management. Responsibilities included system analysis, database design and management, data entry, and supporting administrative workflows while maintaining data accuracy."
-        },
-        {
-            school: "Bootcamp Coding Camp",
-            degree: "Cohort Participant",
-            period: "2024",
-            description: "Selected as a cohort participant in Dicoding Coding Camp, completing structured learning paths and hands-on projects in web development and software engineering."
+        .footer-social a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(226, 176, 213, 0.2);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
         }
-    ];
 
-    return education.map(edu => `
-        <div class="content-card" data-aos="fade-up">
-            <div class="card-info">
-                <h3>${edu.school}</h3>
-                <h4>${edu.degree}</h4>
-                <p class="period">${edu.period}</p>
-                <p>${edu.description}</p>
+        .footer-social a:hover {
+            background-color: #e2b0d5;
+            transform: translateY(-5px);
+        }
+
+        .footer-social i {
+            font-size: 1.2rem;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Add animation to page loading -->
+    <style>
+        /* Page loading animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-container {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* Enhanced styling for content cards */
+        .content-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #e2b0d5, #c08eb7);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease;
+        }
+        
+        .content-card:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Skills section preview in about page */
+        .skills-preview {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .skills-preview h2 {
+            color: #e2b0d5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .skills-preview h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e2b0d5;
+        }
+        
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .skill-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-icon i {
+            font-size: 2.5rem;
+            color: #e2b0d5;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-icon span {
+            font-size: 0.9rem;
+            color: white;
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-8px);
+        }
+        
+        .view-more-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: #c08eb7;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(192, 142, 183, 0.3);
+        }
+        
+        .view-more-btn:hover {
+            background: #e2b0d5;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(226, 176, 213, 0.4);
+        }
+    </style>
+
+    <!-- Add Skills preview section to the about page -->
+    <div class="skills-preview" data-aos="fade-up" data-aos-duration="1500">
+        <h2>My Skills</h2>
+        <div class="skills-icons">
+            <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+            </div>
+            <div class="skill-icon">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-icon">
+                <i class="fab fa-php"></i>
+                <span>PHP</span>
+            </div>
+            <div class="skill-icon">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
             </div>
         </div>
-    `).join('');
-}
-
-
-    // Enhance initial content with an education button
-    window.onload = function() {
-        // Add education button to stats
-        const statsContainer = document.querySelector('.stats');
-        if (statsContainer) {
-            const educationBtn = document.createElement('div');
-            educationBtn.className = 'stat-item';
-            educationBtn.setAttribute('data-aos', 'zoom-in');
-            educationBtn.setAttribute('data-aos-duration', '1500');
-            educationBtn.setAttribute('data-aos-delay', '1000');
-            educationBtn.onclick = showEducation;
-            educationBtn.innerHTML = `
-                <h3><i class="fas fa-graduation-cap"></i></h3>
-                <p>Education</p>
-            `;
-            statsContainer.appendChild(educationBtn);
-            AOS.refresh();
-        }
-    };
-
-    // Add hover effects to navbar links
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-container .links a');
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    });
-</script>
-
-<!-- Add animation to page loading -->
-<style>
-    /* Page loading animation */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .about-container {
-        animation: fadeIn 1s ease-out;
-    }
-    
-    /* Enhanced styling for content cards */
-    .content-card {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .content-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(to right, #e2b0d5, #c08eb7);
-        transform: scaleX(0);
-        transform-origin: bottom right;
-        transition: transform 0.4s ease;
-    }
-    
-    .content-card:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-    
-    /* Skills section preview in about page */
-    .skills-preview {
-        margin-top: 3rem;
-        text-align: center;
-    }
-    
-    .skills-preview h2 {
-        color: #e2b0d5;
-        margin-bottom: 1.5rem;
-        position: relative;
-        display: inline-block;
-    }
-    
-    .skills-preview h2::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #e2b0d5;
-    }
-    
-    .skills-icons {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        margin-top: 2rem;
-    }
-    
-    .skill-icon {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: all 0.3s ease;
-    }
-    
-    .skill-icon i {
-        font-size: 2.5rem;
-        color: #e2b0d5;
-        margin-bottom: 0.5rem;
-    }
-    
-    .skill-icon span {
-        font-size: 0.9rem;
-        color: white;
-    }
-    
-    .skill-icon:hover {
-        transform: translateY(-8px);
-    }
-    
-    .view-more-btn {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.8rem 2rem;
-        background: #c08eb7;
-        color: white;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(192, 142, 183, 0.3);
-    }
-    
-    .view-more-btn:hover {
-        background: #e2b0d5;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 15px rgba(226, 176, 213, 0.4);
-    }
-</style>
-
-<!-- Add Skills preview section to the about page -->
-<div class="skills-preview" data-aos="fade-up" data-aos-duration="1500">
-    <h2>My Skills</h2>
-    <div class="skills-icons">
-        <div class="skill-icon">
-            <i class="fab fa-html5"></i>
-            <span>HTML5</span>
-        </div>
-        <div class="skill-icon">
-            <i class="fab fa-css3-alt"></i>
-            <span>CSS3</span>
-        </div>
-        <div class="skill-icon">
-            <i class="fab fa-js"></i>
-            <span>JavaScript</span>
-        </div>
-        <div class="skill-icon">
-            <i class="fab fa-php"></i>
-            <span>PHP</span>
-        </div>
-        <div class="skill-icon">
-            <i class="fas fa-database"></i>
-            <span>MySQL</span>
-        </div>
+        <a href="skill.html" class="view-more-btn">View All Skills</a>
     </div>
-    <a href="skill.html" class="view-more-btn">View All Skills</a>
-</div>
+
+</body>
+
+</html>
