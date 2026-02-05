@@ -920,33 +920,50 @@
     }
 
     // Helper function to generate education cards
-    function generateEducationCards() {
-        const education = [
-            {
-                school: "STMIK YMI Tegal",
-                degree: "Bachelor of Information Systems",
-                period: "2022 - 2026",
-                description: "Currently pursuing degree with focus on database management, system analysis and design, and web development."
-            },
-            {
-                school: "SMA Negeri 1 Kramat",
-                degree: "High School",
-                period: "2019 - 2022",
-                description: "Graduated with honors, specialized in Mathematics and Natural Sciences."
-            }
-        ];
+function generateEducationCards() {
+    const education = [
+        // ================= EDUCATION =================
+        {
+            school: "Universitas Harkat Negeri",
+            degree: "Bachelor of Information Systems",
+            period: "2022 - Present",
+            description: "Seventh semester student majoring in Information Systems, Faculty of Science and Technology, with focus on system analysis, database management, and web-based application development."
+        },
+        {
+            school: "SMA Negeri 1 Kramat",
+            degree: "High School (Science Major)",
+            period: "2019 - 2022",
+            description: "Graduated with a strong foundation in Mathematics and Natural Sciences."
+        },
 
-        return education.map(edu => `
-            <div class="content-card" data-aos="fade-up">
-                <div class="card-info">
-                    <h3>${edu.school}</h3>
-                    <h4>${edu.degree}</h4>
-                    <p class="period">${edu.period}</p>
-                    <p>${edu.description}</p>
-                </div>
+        // ================= EXPERIENCE =================
+// ================= EXPERIENCE =================
+        {
+            school: "Internship Program",
+            degree: "Web & Information System Development",
+            period: "2024",
+            description: "Completed an internship at the Civil Registry and Demography Agency (Disdukcapil) of Tegal City, focusing on the development of a web-based backend system for population data management. Responsibilities included system analysis, database design and management, data entry, and supporting administrative workflows while maintaining data accuracy."
+        },
+        {
+            school: "Dicoding Coding Camp",
+            degree: "Cohort Participant",
+            period: "2024",
+            description: "Selected as a cohort participant in Dicoding Coding Camp, completing structured learning paths and hands-on projects in web development and software engineering."
+        }
+    ];
+
+    return education.map(edu => `
+        <div class="content-card" data-aos="fade-up">
+            <div class="card-info">
+                <h3>${edu.school}</h3>
+                <h4>${edu.degree}</h4>
+                <p class="period">${edu.period}</p>
+                <p>${edu.description}</p>
             </div>
-        `).join('');
-    }
+        </div>
+    `).join('');
+}
+
 
     // Enhance initial content with an education button
     window.onload = function() {
