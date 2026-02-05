@@ -149,7 +149,7 @@ nav {
 section {
   width: 100%;
   min-height: 100vh;
-  padding-top: 10vh; /* Account for fixed navbar */
+  padding-top: 14vh; /* Account for fixed navbar */
   display: flex;
   align-items: center;
 }
