@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- UBAH DI SINI: Title -->
     <title>Shafira Dwi Nur'Izzati - Portfolio</title>
 </head>
 
@@ -17,7 +16,6 @@
     <nav>
         <div class="nav-container">
             <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                <!-- UBAH DI SINI: Nama (opsional, kalau mau disingkat juga boleh) -->
                 Shafira Dwi <span>Nur'Izzati</span>
             </div>
 
@@ -29,8 +27,8 @@
                 <a href="contact.html">Contact</a>
             </div>
 
-            <i class="fa-solid fa-bars hamburg"></i>
-            <i class="fa-solid fa-xmark cancel"></i>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+            <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
         </div>
     </nav>
 
@@ -55,7 +53,6 @@
                     I'm a <span class="typewriter-text"></span>
                 </div>
 
-                <!-- 🔴 UBAH DI SINI: DESKRIPSI UTAMA -->
                 <p data-aos="flip-down" data-aos-duration="1500">
                     I am a seventh semester student at Universitas Harkat Negeri, majoring in Information Systems, Faculty of Science and Technology. 
                     Throughout my academic journey, I have developed a strong understanding of system analysis, database management, and web-based application development. 
@@ -90,49 +87,13 @@
     </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/script.js"></script>
     <script>
         AOS.init({ offset: 0 });
 
         function downloadCV() {
             window.location.href = "img/shafira_CV.pdf";
         }
-
-        // 🔴 UBAH DI SINI (opsional): kata-kata typewriter
-        const words = [
-            "Information Systems Student",
-            "Web Developer",
-            "UI/UX Enthusiast"
-        ];
-
-        const typewriter = document.querySelector('.typewriter-text');
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-
-            if (isDeleting) {
-                typewriter.textContent = currentWord.substring(0, charIndex--);
-            } else {
-                typewriter.textContent = currentWord.substring(0, charIndex++);
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(type, 1000);
-                return;
-            }
-
-            if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-
-            setTimeout(type, isDeleting ? 50 : 100);
-        }
-
-        setTimeout(type, 1000);
     </script>
 </body>
 
