@@ -140,7 +140,20 @@ nav {
   font-weight: 500;
   transition: all 0.2s ease;
 }
+.dropdown .links .cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
 
+.dropdown .links .cancel:hover {
+    background-color: #c08eb7;
+}
 .dropdown .links a:hover {
   background-color: #c08eb7; /* Medium pink */
   padding-left: 7%;
