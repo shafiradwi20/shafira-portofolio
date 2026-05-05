@@ -1,18 +1,25 @@
 // Fungsi untuk hamburger menu pada tampilan mobile
 function hamburg() {
-    // Menampilkan dropdown menu
-    document.querySelector('.dropdown').style.top = '0';
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.add('active');
 }
 
 // Fungsi untuk menutup dropdown menu
 function cancel() {
-    // Menyembunyikan dropdown menu
-    document.querySelector('.dropdown').style.top = '-100%';
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.remove('active');
 }
 
-// Efek Typewriter untuk menampilkan berbagai keahlian/profesi
+// Tutup dropdown kalau klik link di dalamnya
 document.addEventListener('DOMContentLoaded', function() {
-    // Array kata-kata yang akan ditampilkan secara berurutan
+    const dropdownLinks = document.querySelectorAll('.dropdown .links a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('.dropdown').classList.remove('active');
+        });
+    });
+
+    // Efek Typewriter
     const words = [
         "Web Developer",
         "Student",
@@ -20,47 +27,38 @@ document.addEventListener('DOMContentLoaded', function() {
         "Database Developer",
         "UI/UX Enthusiast"
     ];
-    
+
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typeSpeed = 100; // Kecepatan mengetik (ms)
-    
+    let typeSpeed = 100;
+
     const typewriterElement = document.querySelector('.typewriter-text');
-    
+
     function type() {
-        // Kata saat ini
         const currentWord = words[wordIndex];
-        
-        // Mengatur kecepatan berdasarkan apakah sedang mengetik atau menghapus
+
         if (isDeleting) {
-            // Menghapus karakter
             typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
-            typeSpeed = 50; // Lebih cepat saat menghapus
+            typeSpeed = 50;
         } else {
-            // Menambah karakter
             typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
-            typeSpeed = 100; // Kecepatan normal saat mengetik
+            typeSpeed = 100;
         }
-        
-        // Logika untuk mengganti kata
+
         if (!isDeleting && charIndex === currentWord.length) {
-            // Ketika selesai mengetik kata, mulai hapus setelah jeda
             isDeleting = true;
-            typeSpeed = 1000; // Jeda sebelum mulai menghapus
+            typeSpeed = 1000;
         } else if (isDeleting && charIndex === 0) {
-            // Setelah kata terhapus, pindah ke kata berikutnya
             isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length; // Kembali ke awal jika sudah kata terakhir
-            typeSpeed = 500; // Jeda sebelum mengetik kata berikutnya
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500;
         }
-        
-        // Memanggil fungsi type lagi setelah interval waktu
+
         setTimeout(type, typeSpeed);
     }
-    
-    // Mulai efek typewriter
+
     type();
 });
